@@ -1,0 +1,63 @@
+using variables.tf, main.tf, terraform.tfvars
+
+vi variable.tf
+
+variable "insta-ami-1" {
+          type = string
+	  }
+variable "insta-ami-2" {
+          type = string
+	  }
+variable "insta-type-1" {
+          type = string
+	  }
+variable "insta-type-2"	{
+          type = string
+	  }
+variable "insta-key-1" {
+          type = string
+	  }
+variable "insta-key-2" {
+          type = string
+	  }
+variable "tag-1" {
+          type = string
+          }
+variable "tag-2" {
+          type = string
+	  }
+
+
+
+main.tf
+
+provider "aws" {
+          region = "ap-south-1"
+	  version = "~>2.0"
+}	  
+resource "aws_instance" "instance-1" {
+          ami = var.insta-ami-1
+	  instance_type = var.insta-type-1
+	  key_name = var.insta-key-1
+	  tags = var.tag-1
+}	  
+
+resource "aws_instance" "instance-2" {
+          ami = var.insta-ami-2
+	  instance_type = var.insta-type-2
+	  key_name = var.insta-key-2
+	  tags = var.tag-2
+}
+
+
+
+terraform.tfvars
+
+insta-ami-1 = " ********* "
+insta-ami-2 = " ********* "
+insta-type-1 = "t2.micro"
+insta-type-2 = "t2.small"
+insta-key-1 = " ***** "
+insta-key-2 = " ***** "
+tag-1 = "instance-1"
+tag-2 = "instance-2"
