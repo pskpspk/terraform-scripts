@@ -1,0 +1,30 @@
+provider "aws" {
+          region = "ap-south-1"
+          version = "~>2.0"
+}
+
+
+resource "aws_vpc" "vpc-1" {
+          cidr_block = "10.0.0.0/24"
+          tags = {
+                 Name = "terraform-vpc-1"
+          }
+}
+
+resource "aws_subnet" "subnet-1" {
+          cidr_block = "10.0.0.0/24"
+          vpc_id = aws_vpc.vpc-1.id
+          tags = {
+                 Name = "terraform-subnet-1"
+          }
+}
+
+resource "aws_instance" "instance-1" {
+          ami = " ****** "
+          instance_type = "t2.small"
+          subnet_id = aws_subnet.subnet-1.id
+          security_groups = [ " **** " ]
+          tags = {
+                 Name = "terraform-instance-1"
+          }
+}
