@@ -1,0 +1,16 @@
+provider "aws" {
+       region = "ap-south-1"
+       version = "~>2.0"
+
+}
+
+
+resource "aws_instance" "instance-1" {
+          ami = " *************** "
+          instance_type = "t2.micro"
+          security_groups = [ " *** " ]
+          tags = {
+                 Name = "terraform-insta-1"
+          }
+          key_name = " **** "
+}
