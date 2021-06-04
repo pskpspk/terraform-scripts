@@ -27,4 +27,5 @@ resource "aws_instance" "instance-1" {
           tags = {
                  Name = "terraform-instance-1"
           }
+	  key_name = " **** "
 }
