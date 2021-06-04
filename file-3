@@ -7,7 +7,7 @@ provider "aws" {
 	  version = "~>2.0"
 }
 
-variable "my-varaiable-1" {
+variable "my-variable-1" {
           type = string
 }
 
